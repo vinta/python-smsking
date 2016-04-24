@@ -12,7 +12,7 @@ class SMSKingErrorResponse(Exception):
         self.response = response
 
     def __str__(self):
-        return 'SMSKingErrorResponse({0}, {1}, response={2})'.format(self.url, self.status_code, self.response)
+        return 'SMSKingErrorResponse(response={0})'.format(self.response)
 
 
 class SMSKingErrorCodeResponse(SMSKingErrorResponse):
@@ -26,4 +26,4 @@ class SMSKingErrorCodeResponse(SMSKingErrorResponse):
         self.error_code = error_code
 
     def __str__(self):
-        return 'SMSKingErrorCodeResponse({0}, {1}, response={2}, error_code={3})'.format(self.url, self.status_code, self.response, self.error_code)
+        return 'SMSKingErrorCodeResponse(response={0}, error_code={1})'.format(self.response, self.error_code)

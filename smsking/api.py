@@ -39,6 +39,14 @@ class SMSKingAPIClient(object):
 
         return kmsgid
 
+    def convert_to_big5(self, text):
+        try:
+            big5_text = text.encode('big5')
+        except UnicodeDecodeError:
+            big5_text = text.decode('utf-8').encode('big5')
+
+        return big5_text
+
     def send_sms(self, dstaddr, smbody, response=None):
         """
         即時 API
@@ -49,7 +57,7 @@ class SMSKingAPIClient(object):
             'username': self.username,
             'password': self.password,
             'dstaddr': dstaddr,
-            'smbody': smbody.encode('big5'),
+            'smbody': self.convert_to_big5(smbody),
         }
 
         if response:

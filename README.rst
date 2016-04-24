@@ -17,11 +17,8 @@ Usage
 
     from smsking import SMSKingAPIClient
 
-    smsking_api = SMSKingAPIClient(
-        username='YOUR_USERNAME',
-        password='YOUR_PASSWORD',
-    )
-    smsking_api.send_sms('0912345678', 'YOUR MESSAGE')
+    smsking_api = SMSKingAPIClient('YOUR_USERNAME', 'YOUR_PASSWORD')
+    smsking_api.send_sms('0912345678', '必須在三天內把這封簡訊轉寄給你的三個朋友，否則你就會一直遇到 UnicodeDecodeError')
 
 References
 ==========
